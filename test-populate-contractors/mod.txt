@@ -1,0 +1,12 @@
+{
+        "blt_version" : 2,
+        "name" : "populate contract filters",
+        "author" : "oruga",
+        "description" : "populates the contract filters list to test scrolling capability",
+        "hooks" : [
+                {
+                        "hook_id" : "lib/managers/menu/contractbrokergui",
+                        "script_path" : "hooks/contractbrokergui.lua"
+                }
+        ]
+}

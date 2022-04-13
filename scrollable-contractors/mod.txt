@@ -1,0 +1,22 @@
+{
+        "blt_version" : 2,
+        "name" : "Scrollable Contract Broker",
+        "author" : "oruga",
+        "description" : "allows scrolling through the list of contract brokers for when you have too many",
+        "version" : "1.0",
+        "image" : "icon.png",
+        "hooks" : [
+                {
+                        "hook_id" : "lib/managers/menu/contractbrokergui",
+                        "script_path" : "hooks/contractbrokergui.lua"
+                }
+        ],
+        "updates" : [
+                {
+                        "identifier" : "SCB",
+                        "host" : {
+                                "meta" : "DNE"
+                        }
+                }
+        ]
+}
