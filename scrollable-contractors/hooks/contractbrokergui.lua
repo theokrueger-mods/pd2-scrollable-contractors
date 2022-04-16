@@ -52,23 +52,26 @@ function ContractBrokerGui.scroll_broker(self, x, y, n, override)
                                 previous_data.w = text_panel:w()
                                 previous_data.h = text_panel:h()
 
-                                -- if this is the last entry in the whole list we want its original text to be shwon
+                                -- if this is the last entry in the whole list we want its original text to be shown
 				if tail ~= button_count then
                                         -- set current panel text to "<head> - <tail> of <total>"
 					-- ex: "3 - 21 of 36"
                                         text_panel:set_text(head ..'-'.. tail .. ' of ' .. button_count)
-
-					-- positions entire panel where it should be
-                                        panel:set_righttop(self._panels.filters:w() - 4, y)
-
-                                        -- reposition text
-                                        local _, _, w, h = text_panel:text_rect()
-                                        text_panel:set_size(w, h)
                                         text_panel:set_position(footer_position, text_panel:y())
-
-					-- show our panel in case it is hidden
-                                        panel:set_visible(true)
+                                else
+                                        text_panel:set_position(previous_data.x, text_panel:y())
                                 end
+
+                                -- positions entire panel where it should be
+                                panel:set_righttop(self._panels.filters:w() - 4, y)
+
+                                -- reposition text
+                                local _, _, w, h = text_panel:text_rect()
+                                text_panel:set_size(w, h)
+
+                                -- show our panel in case it is hidden
+                                panel:set_visible(true)
+
 
                         -- checks if this panel should not be shown ...
                         elseif i < head or i > tail then
@@ -83,7 +86,7 @@ function ContractBrokerGui.scroll_broker(self, x, y, n, override)
                                 -- so we set its position to below the previous panel
                                 panel:set_righttop(self._panels.filters:w() - 4, y)
                                 -- and tell the next panel where the bottom of it is
-                                y = panel:bottom() + 4
+                                y = panel:bottom()
                                 -- and shows itself
                                 panel:set_visible(true)
                         end
@@ -99,7 +102,7 @@ Hooks:PostHook(
         'SCB_setup_filter_contact',
         function(self)
                 if self._panels and self._panels.filters then
-                        self.scroll_broker(self, 0, 0, 0, true)
+                        self.scroll_broker(self, 0, 0, -1, true)
                 end
         end
 )
