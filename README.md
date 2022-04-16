@@ -22,7 +22,7 @@ Well too bad, this mod will fix the problem you *do not have*!
 
 ## Previews
 
-![thumbnail](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/thumbnail.png)
+![thumbnail](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/thumbnailsmall.png)
 
 ![preview 1](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/prev1.png)
 
