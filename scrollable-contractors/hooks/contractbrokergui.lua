@@ -18,9 +18,9 @@ local previous_data = {
         h = nil
 }
 
-function ContractBrokerGui.scroll_broker(self, x, y, n)
+function ContractBrokerGui.scroll_broker(self, x, y, n, override)
         -- check if panel exists, is visible, and is hovered over
-        if self._panels and self._panels.filters and self._panels.filters:visible() and self._panels.filters:inside(x, y) then
+        if (self._panels and self._panels.filters and self._panels.filters:visible() and self._panels.filters:inside(x, y)) or override then
                 -- total amount of contractors
                 local button_count = #self._filter_buttons
 
@@ -92,21 +92,19 @@ function ContractBrokerGui.scroll_broker(self, x, y, n)
         end
 end
 
---[[ update initial layout
--- TODO BROKEN
+-- update initial layout
 Hooks:PostHook(
         ContractBrokerGui,
-        'init',
-        'SCB_init',
-        function(self, ws, fullscreen_ws, node)
+        '_setup_filter_contact',
+        'SCB_setup_filter_contact',
+        function(self)
                 if self._panels and self._panels.filters then
-                        previous_panel = shown_buttons + 1
-                        previous_text = self._filter_buttons[previous_panel]:child('text'):text()
-                        self._filter_buttons[previous_panel]:child('text'):set_text(1 ..'-'.. shown_buttons .. ' of ' .. #self._filter_buttons)
+                        self.scroll_broker(self, 0, 0, 0, true)
                 end
         end
 )
-]]--
+
+
 -- scrolling hooks
 Hooks:PostHook(
         ContractBrokerGui,
