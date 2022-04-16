@@ -24,8 +24,9 @@ Well too bad, this mod will fix the problem you *do not have*!
 
 ![thumbnail](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/thumbnail.png)
 
-![preview 1](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/prev1.jpg)
+![preview 1](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/prev1.png)
 
+![preview 2](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/prev2.png)
 
 ## License
 
