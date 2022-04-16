@@ -6,16 +6,17 @@ local shown_buttons = 18
 local head = 1
 -- tail (bottom) of shown filter buttons
 local tail
+-- postition of footer (overidden text / counter at bottom)
+local footer_position = 85
 
 -- previous data for overwritten stuff
 local previous_data = {
         panel = nil,
         text = nil,
-        pos = nil
+        x = nil,
+        w = nil,
+        h = nil
 }
-local previous_panel
-local previous_text
-local previous_right
 
 function ContractBrokerGui.scroll_broker(self, x, y, n)
         -- check if panel exists, is visible, and is hovered over
@@ -35,28 +36,40 @@ function ContractBrokerGui.scroll_broker(self, x, y, n)
                         -- test if this will be the last shown entry
                         if i == tail then
                                 -- revert overridden text to previous state
-                                if previous_data.panel and previous_data.text then
-                                        self._filter_buttons[previous_data.panel]:child('text'):set_text(previous_data.text)
+                                if previous_data.panel then -- its implied that previous_data.text is already set, no need to check
+                                        local text_panel = self._filter_buttons[previous_data.panel]:child('text')
+                                        text_panel:set_text(previous_data.text)
+                                        text_panel:set_size(previous_data.w, previous_data.h)
+                                        text_panel:set_position(previous_data.x, text_panel:y())
                                 end
 
 				local text_panel = panel:child('text')
 				-- store new previous data for next scroll
-				-- there might be wasted cycles here because if this is the last entry we will not be using this data and overwriting the same panel which we never even modified, but it does save lines of code
+				-- there might be wasted cycles here because if this is the last entry we will not be using this data and overwriting the same panel which we never even modified, but it does save lines of code and effort
                                 previous_data.panel = i
                                 previous_data.text = text_panel:text()
+                                previous_data.x = text_panel:x()
+                                previous_data.w = text_panel:w()
+                                previous_data.h = text_panel:h()
 
                                 -- if this is the last entry in the whole list we want its original text to be shwon
 				if tail ~= button_count then
                                         -- set current panel text to "<head> - <tail> of <total>"
 					-- ex: "3 - 21 of 36"
                                         text_panel:set_text(head ..'-'.. tail .. ' of ' .. button_count)
-					
-					-- positions panel where it should be
+
+					-- positions entire panel where it should be
                                         panel:set_righttop(self._panels.filters:w() - 4, y)
+
+                                        -- reposition text
+                                        local _, _, w, h = text_panel:text_rect()
+                                        text_panel:set_size(w, h)
+                                        text_panel:set_position(footer_position, text_panel:y())
 
 					-- show our panel in case it is hidden
                                         panel:set_visible(true)
                                 end
+
                         -- checks if this panel should not be shown ...
                         elseif i < head or i > tail then
                                 -- ... and then hides it!
