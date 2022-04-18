@@ -19,8 +19,8 @@ local previous_data = {
 }
 
 function ContractBrokerGui.scroll_broker(self, x, y, n, override)
-        -- check if panel exists, is visible, and is hovered over
-        if (self._panels and self._panels.filters and self._panels.filters:visible() and self._panels.filters:inside(x, y)) or override then
+        -- check if panel exists, is visible, and is hovered over, and also if we are currently in broker filter
+        if (self._current_tab == 1 and self._panels and self._panels.filters and self._panels.filters:visible() and self._panels.filters:inside(x, y)) or override then
                 -- total amount of contractors
                 local button_count = #self._filter_buttons
 
