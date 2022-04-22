@@ -1,19 +1,21 @@
 # Scrollable Contractors
 
-Do you have too many custom heists? Can you not scroll to the bottom of the contractor list, leaving some maps inaccessible?
+do you have too many custom heists? can you not scroll to the bottom of the contractor list, leaving some maps inaccessible?
 
-No?
+no?
 
-Well too bad, this mod will fix the problem you *do not have*!
+well too bad, this mod will fix the problem you *do not have*!
 
 ----
 
 <details>
-  <summary><b>Compatibility</b></summary>
-  Should be compatible with everything that doesn't completely overhaul the contract broker UI.
+  <summary><b>compatibility</b></summary>
+
+  should be compatible with everything that doesn't completely overhaul the contract broker UI.
+
 </details>
 
-## Mirrors
+## mirrors
 
 [Github](https://github.com/theokrueger-mods/pd2-scrollable-contractors)
 
@@ -21,13 +23,14 @@ Well too bad, this mod will fix the problem you *do not have*!
 
 [ModWorkshop](https://modworkshop.net/mod/37050)
 
-## Previews
+## previews
 
-![thumbnail](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/thumbnailsmall.png)
+![thumbnail](img/thumbnailsmall.png)
 
-![preview 1](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/prev1.png)
+![preview 1](img/prev1.png)
 
-![preview 2](https://github.com/theokrueger-mods/pd2-scrollable-contractors/raw/master/img/prev2.png)
+![preview 2](img/prev2.png)
 
-## License
+## license
+
 MIT, see [LICENSE](LICENSE)
